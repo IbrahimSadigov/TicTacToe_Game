@@ -29,7 +29,7 @@ public class TwoPlayerTTT {
 
             gameloop: while(cnt < 5) {
 
-                while(xOrder == true) {
+                while(xOrder) {
 
                     System.out.print("Player 1: ");
 
@@ -78,7 +78,7 @@ public class TwoPlayerTTT {
                     break;
                 }
 
-                while (xOrder == false) {
+                while (!xOrder) {
 
                     System.out.print("Player 2: ");
 
