@@ -3,15 +3,11 @@ import java.util.Scanner;
 
 public class TwoPlayerTTT {
 
-    public static void main(String[] args) {
+    public static void TwoPlayer() {
 
-        System.out.println("Welcome to Tic Tac Toe Game\n");
+        Main main = new Main();
 
-        System.out.println("The first player is X!\nThe second player is O!\n");
-
-        System.out.println("| 1 | 2 | 3 |\n| 4 | 5 | 6 |\n| 7 | 8 | 9 |\n");
-
-        int a, b;
+        main.welcomeMessage();
 
         String [] game = new String[9];
 
@@ -19,21 +15,18 @@ public class TwoPlayerTTT {
 
         Scanner scan = new Scanner(System.in);
 
-        System.out.println("The first X starts to game!\nChoose where you want to draw ");
+        String first = "X";
+        String second = "O";
 
-            Boolean isFull = false;
-
-            Boolean xOrder = true;
-
-            int cnt = 0;
-
-            gameloop: while(cnt < 5) {
+        boolean xOrder = true;
+        int cnt = 0;
+        gameloop: while(cnt < 5) {
 
                 while(xOrder) {
 
                     System.out.print("Player 1: ");
 
-                    a = scan.nextInt();
+                    int a = scan.nextInt();
 
                     if (game[a - 1].equals(" ")) {
 
@@ -48,41 +41,29 @@ public class TwoPlayerTTT {
                         System.out.println("You can only draw to empty place. Try again!");
                     }
 
-                    if ((game[0] == "X" && game[1] == "X" && game[2] == "X") ||
-                            (game[3] == "X" && game[4] == "X" && game[5] == "X") ||
-                            (game[6] == "X" && game[7] == "X" && game[8] == "X") ||
-                            (game[0] == "X" && game[3] == "X" && game[6] == "X") ||
-                            (game[1] == "X" && game[4] == "X" && game[7] == "X") ||
-                            (game[2] == "X" && game[5] == "X" && game[8] == "X") ||
-                            (game[0] == "X" && game[4] == "X" && game[8] == "X") ||
-                            (game[2] == "X" && game[4] == "X" && game[6] == "X")) {
+                    if ((game[0] == first && game[1] == first && game[2] == first) ||
+                            (game[3] == first && game[4] == first && game[5] == first) ||
+                            (game[6] == first && game[7] == first && game[8] == first) ||
+                            (game[0] == first && game[3] == first && game[6] == first) ||
+                            (game[1] == first && game[4] == first && game[7] == first) ||
+                            (game[2] == first && game[5] == first && game[8] == first) ||
+                            (game[0] == first && game[4] == first && game[8] == first) ||
+                            (game[2] == first && game[4] == first && game[6] == first)) {
 
-                        System.out.println("\nFirst Player Won!");
+                        System.out.println("\n" + first +" Won!");
                         break gameloop;
                     }
                 }
 
-                for (int i = 0; i < game.length; i++) {
-
-                    isFull = false;
-
-                    if (game[i] == " ") {
-                        isFull = true;
-                    } else
-                        isFull = false;
-                }
-
                 cnt++;
 
-                if (cnt == 5) {
-                    break;
-                }
+                if (cnt == 5) break;
 
                 while (!xOrder) {
 
                     System.out.print("Player 2: ");
 
-                    b = scan.nextInt();
+                    int b = scan.nextInt();
 
                     if (game[b - 1].equals(" ")) {
 
@@ -96,24 +77,22 @@ public class TwoPlayerTTT {
                         System.out.println("You can only draw to empty place. Try again!");
                     }
 
-                    if ((game[0] == "O" && game[1] == "O" && game[2] == "O") ||
-                            (game[3] == "O" && game[4] == "O" && game[5] == "O") ||
-                            (game[6] == "O" && game[7] == "O" && game[8] == "O") ||
-                            (game[0] == "O" && game[3] == "O" && game[6] == "O") ||
-                            (game[1] == "O" && game[4] == "O" && game[7] == "O") ||
-                            (game[2] == "O" && game[5] == "O" && game[8] == "O") ||
-                            (game[0] == "O" && game[4] == "O" && game[8] == "O") ||
-                            (game[2] == "O" && game[4] == "O" && game[6] == "O")) {
+                    if ((game[0] == second && game[1] == second && game[2] == second) ||
+                            (game[3] == second && game[4] == second && game[5] == second) ||
+                            (game[6] == second && game[7] == second && game[8] == second) ||
+                            (game[0] == second && game[3] == second && game[6] == second) ||
+                            (game[1] == second && game[4] == second && game[7] == second) ||
+                            (game[2] == second && game[5] == second && game[8] == second) ||
+                            (game[0] == second && game[4] == second && game[8] == second) ||
+                            (game[2] == second && game[4] == second && game[6] == second)) {
 
-                        System.out.println("\nSecond Player Won!");
+                        System.out.println("\n" + second + " Won!");
                         break gameloop;
 
                     }
                 }
             }
 
-        if (isFull = true && cnt == 5){
-            System.out.println("\nEqual");
-        }
+        if (cnt == 5) System.out.println("\nEqual");
     }
 }
